@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>متاهات نونة · قصار السور</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Aref+Ruqaa:wght@700&family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<section id="home" class="screen on" aria-label="القائمة">
+  <div class="hero">
+    <h1>متاهات نونة</h1>
+    <p>نراجع قصار السور مع النحلة نونة</p>
+    <p class="hello" id="hello"></p>
+    <button class="how" id="howBtn">كيف نلعب؟</button>
+    <svg class="trail" viewBox="0 0 800 90" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+      <path d="M40,70 C180,10 300,90 430,45 S650,20 700,40" fill="none" stroke="#24508a" stroke-width="4" stroke-dasharray="2 12" stroke-linecap="round"/>
+      <g transform="translate(720,40) scale(0.62)"> <ellipse cx="-8" cy="-26" rx="20" ry="14" fill="#dff3ff" stroke="#5b8db8" stroke-width="3" transform="rotate(-25 -8 -26)"/> <ellipse cx="14" cy="-26" rx="20" ry="14" fill="#dff3ff" stroke="#5b8db8" stroke-width="3" transform="rotate(25 14 -26)"/> <ellipse cx="0" cy="0" rx="40" ry="27" fill="#ffd23f" stroke="#3a2a10" stroke-width="4"/> <path d="M-12,-25 Q-6,0 -12,25 M6,-26 Q12,0 6,26" stroke="#3a2a10" stroke-width="9" fill="none"/> <circle cx="38" cy="-4" r="17" fill="#ffd23f" stroke="#3a2a10" stroke-width="4"/> <circle cx="44" cy="-8" r="4" fill="#3a2a10"/><path d="M38,4 Q45,9 50,2" stroke="#3a2a10" stroke-width="3" fill="none"/> <circle cx="47" cy="1" r="4" fill="#ff9aa2"/> <path d="M34,-19 Q32,-34 24,-38 M42,-19 Q46,-34 54,-36" stroke="#3a2a10" stroke-width="3" fill="none"/> <circle cx="24" cy="-38" r="4" fill="#3a2a10"/><circle cx="54" cy="-36" r="4" fill="#3a2a10"/> <path d="M-40,0 L-52,0" stroke="#3a2a10" stroke-width="5"/></g>
+    </svg>
+  </div>
+  <div class="stories" id="stories"></div>
+  <p class="note">كل الاختيارات آيات كاملة من قصار السور بالرسم العثماني. اختار الآية اللي بتيجي بعد اللي قبلها عشان نونة تكمّل طريقها.</p>
+</section>
+
+<section id="play" class="screen" aria-label="اللعب">
+  <div class="bar">
+    <button class="icon" id="back" aria-label="ارجع للقائمة">→</button>
+    <div class="t"><b id="pt"></b><span id="ps"></span></div>
+    <button class="icon" id="snd" aria-label="الصوت">🔊</button>
+  </div>
+  <div class="map" id="map"></div>
+  <div class="panel">
+   <div class="pbody">
+    <button class="backbtn" id="back2" aria-label="رجوع للمراحل"><span class="ar" aria-hidden="true">←</span><span>رجوع</span></button>
+    <div class="pmain">
+    <div id="ask">
+      <p class="prompt" id="prompt">إيه الآية اللي بعدها؟</p>
+      <div class="choices">
+        <button class="choice A" id="cA"></button>
+        <button class="choice B" id="cB"></button>
+      </div>
+    </div>
+    <div class="say" id="say" aria-live="polite">
+      <div class="ok" id="sayOk">صح! ردّدها معانا</div>
+      <p class="v" id="sayV"></p>
+      <button class="go" id="goBtn" style="display:none">يلا نبدأ</button>
+    </div>
+    </div>
+   </div>
+  </div>
+</section>
+
+<div class="veil intro" id="intro" role="dialog" aria-modal="true" aria-labelledby="it">
+  <div class="win introbox">
+    <svg class="ibee" viewBox="-60 -50 120 80" aria-hidden="true"><g transform="scale(0.9)"> <ellipse cx="-8" cy="-26" rx="20" ry="14" fill="#dff3ff" stroke="#5b8db8" stroke-width="3" transform="rotate(-25 -8 -26)"/> <ellipse cx="14" cy="-26" rx="20" ry="14" fill="#dff3ff" stroke="#5b8db8" stroke-width="3" transform="rotate(25 14 -26)"/> <ellipse cx="0" cy="0" rx="40" ry="27" fill="#ffd23f" stroke="#3a2a10" stroke-width="4"/> <path d="M-12,-25 Q-6,0 -12,25 M6,-26 Q12,0 6,26" stroke="#3a2a10" stroke-width="9" fill="none"/> <circle cx="38" cy="-4" r="17" fill="#ffd23f" stroke="#3a2a10" stroke-width="4"/> <circle cx="44" cy="-8" r="4" fill="#3a2a10"/><path d="M38,4 Q45,9 50,2" stroke="#3a2a10" stroke-width="3" fill="none"/> <circle cx="47" cy="1" r="4" fill="#ff9aa2"/> <path d="M34,-19 Q32,-34 24,-38 M42,-19 Q46,-34 54,-36" stroke="#3a2a10" stroke-width="3" fill="none"/> <circle cx="24" cy="-38" r="4" fill="#3a2a10"/><circle cx="54" cy="-36" r="4" fill="#3a2a10"/> <path d="M-40,0 L-52,0" stroke="#3a2a10" stroke-width="5"/></g></svg>
+    <h3 id="it">كيف نلعب؟</h3>
+    <ol class="steps">
+      <li><b>١</b><span>خرجت النحلة <em>نونة</em> من بيتها تبحث عن الزهرة لتجمع الرحيق، ثم تعود إلى بيتها. ساعدها في رحلتها!</span></li>
+      <li><b>٢</b><span>عند كل مفترق اختر الآية التالية؛ الصحيحة تفتح الطريق، والخاطئة طريقها مسدود.</span></li>
+      <li><b>٣</b><span>اللعبة مراحل، نراجع في كل مرحلة سورة من قصار السور، من الناس إلى العلق.</span></li>
+    </ol>
+    <label class="namebox" for="kidName">اكتب اسمك</label>
+    <input class="nameinput" id="kidName" type="text" maxlength="20" autocomplete="off" placeholder="اسمك">
+    <button class="go" id="introGo">هيّا نلعب!</button>
+  </div>
+</div>
+
+<div class="veil party" id="party" role="dialog" aria-modal="true" aria-labelledby="cName">
+  <div class="confetti" id="confetti" aria-hidden="true"></div>
+  <div class="win partybox">
+    <svg class="trophy" viewBox="-110 -120 220 230" aria-hidden="true">
+      <g class="glow"><circle r="100" fill="#fff3bf"/></g>
+      <path d="M-62,-78 Q-108,-78 -100,-38 Q-92,-4 -48,0" fill="none" stroke="#e0a800" stroke-width="12" stroke-linecap="round"/>
+      <path d="M62,-78 Q108,-78 100,-38 Q92,-4 48,0" fill="none" stroke="#e0a800" stroke-width="12" stroke-linecap="round"/>
+      <path d="M-66,-88 L66,-88 Q66,10 0,22 Q-66,10 -66,-88Z" fill="#ffd23f" stroke="#b07d00" stroke-width="6" stroke-linejoin="round"/>
+      <path d="M-40,-78 Q-40,-20 -10,4" fill="none" stroke="#fff6c9" stroke-width="8" stroke-linecap="round"/>
+      <path d="M0,-66 L9,-46 L31,-44 L14,-30 L19,-9 L0,-20 L-19,-9 L-14,-30 L-31,-44 L-9,-46Z" fill="#fff" stroke="#b07d00" stroke-width="3"/>
+      <rect x="-12" y="20" width="24" height="30" fill="#e0a800" stroke="#b07d00" stroke-width="5"/>
+      <rect x="-50" y="48" width="100" height="26" rx="6" fill="#7048e8" stroke="#4a2fb0" stroke-width="5"/>
+      <rect x="-66" y="72" width="132" height="22" rx="6" fill="#5a3bd0" stroke="#4a2fb0" stroke-width="5"/>
+      <g transform="translate(78,-96) scale(0.55) rotate(-12)"> <ellipse cx="-8" cy="-26" rx="20" ry="14" fill="#dff3ff" stroke="#5b8db8" stroke-width="3" transform="rotate(-25 -8 -26)"/> <ellipse cx="14" cy="-26" rx="20" ry="14" fill="#dff3ff" stroke="#5b8db8" stroke-width="3" transform="rotate(25 14 -26)"/> <ellipse cx="0" cy="0" rx="40" ry="27" fill="#ffd23f" stroke="#3a2a10" stroke-width="4"/> <path d="M-12,-25 Q-6,0 -12,25 M6,-26 Q12,0 6,26" stroke="#3a2a10" stroke-width="9" fill="none"/> <circle cx="38" cy="-4" r="17" fill="#ffd23f" stroke="#3a2a10" stroke-width="4"/> <circle cx="44" cy="-8" r="4" fill="#3a2a10"/><path d="M38,4 Q45,9 50,2" stroke="#3a2a10" stroke-width="3" fill="none"/> <circle cx="47" cy="1" r="4" fill="#ff9aa2"/> <path d="M34,-19 Q32,-34 24,-38 M42,-19 Q46,-34 54,-36" stroke="#3a2a10" stroke-width="3" fill="none"/> <circle cx="24" cy="-38" r="4" fill="#3a2a10"/><circle cx="54" cy="-36" r="4" fill="#3a2a10"/> <path d="M-40,0 L-52,0" stroke="#3a2a10" stroke-width="5"/></g>
+    </svg>
+    <h3 id="cName">شكرًا!</h3>
+    <p class="thanks">شكرًا على مساعدتك لنونة النحلة! بفضلك رجعت لبيتها وأصحابها 🐝</p>
+    <p class="done">أتممت مراجعة قصار السور من الناس إلى العلق، وهذه كأس البطل لك 🏆</p>
+    <div class="row">
+      <button class="go" id="cHome" style="margin:0">القائمة</button>
+      <button class="btn2" id="cAgain">العب من الأول</button>
+    </div>
+  </div>
+</div>
+
+<div class="veil" id="veil" role="dialog" aria-modal="true" aria-labelledby="wt">
+  <div class="win">
+    <h3 id="wt">برافو!</h3>
+    <div class="stars" id="wstars"></div>
+    <p id="wp"></p>
+    <div class="row">
+      <button class="go" id="wnext" style="margin:0">المرحلة اللي بعدها</button>
+      <button class="btn2" id="wagain">العبها تاني</button>
+      <button class="btn2" id="whome">القائمة</button>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
